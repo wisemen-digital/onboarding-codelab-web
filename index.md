@@ -16,7 +16,7 @@ feedback link: https://github.com/SolaceDev/solace-dev-codelabs/blob/master/mark
 <img width="200" src="img/projectSetup/Wisemen_Logo_Acid.png">
 
 In this onboarding you will learn how frontend development happens at Wisemen.
-You will learn how to work with Vue, Vite, Tailwind, Figma, Github, Jira and more.
+You will learn how to work with Vue, Vite, Tailwind, Figma, Github, Linear and more.
 
 This onboarding is designed to be completed in roughly 3-4 days.
 This does not mean you have to complete it in 3-4 days. 
@@ -56,7 +56,6 @@ Webstorm is a paid IDE. You can get a license from Wisemen. Ask your buddy!
 
 Handy Plugins:
 - **Atom Material Icons** (cool file and folder icons)
-- **Bitbucket pull** requests (The plugin allows you to review Atlassian Bitbucket pull requests right in the IDE.)
 - **GitHub CoPilot** (AI pair programmer)
 - **Easy i18n** (i18n support in WebStorm)
 - **IntelliVue** (Vue.js support for WebStorm)
@@ -130,49 +129,37 @@ To access the designs you need to log in with your Wisemen account:
 
 ### Source control
 
-#### BitBucket repository
-
-Bitbucket is a web-based version control repository hosting service owned by Atlassian, for source code and development
-projects that use the Git revision control system.
-
-Some of our older projects are still hosted on BitBucket.
-
-[Wisemen BitBucket](https://bitbucket.org/product)
-
-If you are not yet familiar with Bitbucket and/or Git, Here is great article to get you started:
-[Bitbucket Git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control)
-
-We also expect you to make pull request of your work so your buddy can review your code and keep track of your progress.
-In the article above you can find a section about pull requests to get you started!
-
 #### GitHub
 
-GitHub is another web-based version control repository hosting service owned by Microsoft, for source code and development
+GitHub is a web-based version control repository hosting service owned by Microsoft, for source code and development
 projects that use the Git revision control system.
 
-Just like BitBucket, some of our projects will be hosted on GitHub. **_GitHub will be used for new projects_**.
+Our projects will be hosted on GitHub.
 
 If you are not yet familiar with GitHub, Here is great article to get you started:
 [GitHub Git tutorial](https://docs.github.com/en/get-started/start-your-journey/hello-world)
 
-Same as with BitBucket, we expect you to make pull request of your work so your buddy can review your code and keep
+We expect you to make pull request of your work so your buddy can review your code and keep
 track of your progress.
 
 > aside positive
 > We switched to GitHub for our new projects. 
 > You can find our GitHub organization here: [Wisemen GitHub](https://github.com/wisemen-digital)
 
-### Jira access
+### Linear access
 
-For this onboarding you will be working with Jira to track your progress. You can find the Jira board here:
-[Jira Todo]()
+For this onboarding you will be working with Linear to track your progress. You can find the Linear board here:
+[Linear Todo]()
 
-Jira is used to track the progress of your project and manage the tasks that need to be done.
-All the requirements for the to-do app are in the Jira. You will be creating tasks in the Jira to keep track of your progress.
+Linear is used to track the progress of your project and manage the tasks that need to be done.
+All the requirements for the to-do app are in the Linear. You will be creating tasks in the Linear to keep track of your progress.
 
-The Jira contains all the requirements for creating the to-do app.
+The Linear contains all the requirements for creating the to-do app.
 
-*ToDo: Add link to Jira*
+*ToDo: Add link to Linear*
+
+> A little tip: You can copy you're branch name from the linear ticket by using the command .
+>`cmd + shift + .` on the ticket and then paste it in your terminal.
 
 ## Project explanation
 
@@ -585,17 +572,13 @@ const httpClient: AxiosInstance = axios.create({
 ### Creating the auth service
 - Create a new file called `auth.service.ts` in the `src/modules/auth/services` folder.
 - Import the `httpClient` from the `src/http` folder.
-- Create a new function called `login` that takes a `username` and `password` as parameters.
+- Create a new class called AuthService
+- Create a new static called `login` that takes a `username` and `password` as parameters.
 - Use the `httpClient` to make a `POST` request to the `/login` endpoint.
 
 ```typescript
-interface AuthService {
-  login: (username: string, password: string) => Promise<void>
-  getCurrentUser: () => Promise<CurrentUser>
-}
-
-export const authService: AuthService = {
-  login: async (username: string, password: string): Promise<AuthTokens> => {
+export class AuthService {
+  static async login(username: string, password: string): Promise<AuthTokens> {
     const formData = encodeQueryData({
       client_id: import.meta.env.VITE_CLIENT_ID,
       client_secret: import.meta.env.VITE_CLIENT_SECRET,
@@ -611,11 +594,12 @@ export const authService: AuthService = {
     
     const response = await httpClient.post('/auth/token', formData, config)
     return response.data
-  },
-  getCurrentUser: async (): Promise<CurrentUser> => {
+  }
+
+ static async getCurrentUser(): Promise<CurrentUser> {
     const response = await httpClient.get('/users/me')
     return response.data
-  },
+  }
 }
 ```
 
@@ -821,15 +805,11 @@ we are going to create a file 'todo.service.ts' in the `src/modules/todos/servic
 This service will contain a function `TodoService` that returns another function called `getAll`.
 
 ```typescript
-interface TodoService {
-  getAll: () => Promise<Todo[]>
-}
-
-export const todoService: TodoService = {
-  getAll: async (): Promise<Todo[]> => {
+export class TodoService {
+  static async getAll(): Promise<Todo[]> {
     const response = await httpClient.get('/todos')
     return response.items
-  },
+  }
 }
 ```
 
@@ -942,16 +922,13 @@ export type TodoForm = z.infer<typeof formSchema>
 After creating the model that we want to add a new function to our existing service that will be used to create a new todo.
 
 ```typescript
-interface TodoService {
-  ...
-  create: (form: TodoForm) => Promise<void>
-}
 
-export const todoService: TodoService = {
+
+export class TodoService {
   ...
-  create: async (form: TodoForm): Promise<void> => {
+  static async create(form: TodoForm): Promise<void> {
     await httpClient.post('/todos', form)
-  },
+  }
 }
 ```
 
@@ -993,7 +970,7 @@ Once we have created the mutation, we can start with creating a modal component 
 import { useForm } from 'formango' 
 const todoCreateMutation = useTodoCreateMutation()
 
-const { onSubmitForm, form } = useForm({
+const form = useForm({
   schema: todoFormSchema,
   initialState: {
     title: '',
@@ -1002,13 +979,13 @@ const { onSubmitForm, form } = useForm({
   },
 })
 
-const title = form.register('title')
+const title = form.form.register('title')
 
 function onSubmit(): void {
-  form.submit()
+  form.form.submit()
 }
 
-onSubmitForm(async (formData: TodoCreateForm) => {
+form.onSubmitForm(async (formData: TodoCreateForm) => {
   try {
     await todoCreateMutation.mutateAsync(formData) // notice the async keyword here, it's very important
   } catch (error) {
@@ -1088,18 +1065,14 @@ check if a todo uuid is passed to the modal.
 Now it's time to add a new function to our existing service that will be used to update a todo.
 
 ```typescript
-interface TodoService {
-  update: (uuid: TodoUuid, form: TodoForm) => Promise<void>
-  deleteByUuid: (uuid: TodoUuid) => Promise<void>
-}
-
-export const todoService: TodoService = {
-  update: async (uuid: TodoUuid, form: TodoForm): Promise<void> => {
+export class TodoService {
+  static async update(uuid: TodoUuid, form: TodoForm): Promise<void>{
     await httpClient.post(`/todos/${uuid}`, form)
-  },
-  deleteByUuid: async (uuid: TodoUuid): Promise<void> => {
+  }
+  
+  static async deleteByUuid(uuid: TodoUuid): Promise<void> {
     await httpClient.delete(`/todos/${uuid}`)
-  },
+  }
 }
 ```
 
@@ -1143,7 +1116,7 @@ const props = defineProps<{
 const updateMutation = useTodoUpdateMutation()
 const deleteMutation = useTodoDeleteMutation()
 
-const { onSubmitForm, form } = useForm({
+const form = useForm({
   schema: todoFormSchema,
   initialValues: {
     title: props.todo?.title || '',
@@ -1152,14 +1125,14 @@ const { onSubmitForm, form } = useForm({
   },
 })
 
-const title = form.register('title')
+const title = form.form.register('title')
 ...
 
 function onSubmit(): void {
-  form.submit()
+  form.form.submit()
 }
 
-onSubmitForm(async (formData: TodoForm) => {
+form.onSubmitForm(async (formData: TodoForm) => {
   try {
     if (props.todo) {
       await updateMutation.mutateAsync(props.todo.uuid, formData)
