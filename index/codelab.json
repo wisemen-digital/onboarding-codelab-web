@@ -1,0 +1,23 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-01-31T09:39:08+01:00",
+  "id": "index",
+  "duration": 0,
+  "title": "Wiselab Onboarding Frontend",
+  "summary": "Frontend onboarding",
+  "source": "index.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": null,
+  "tags": [
+    "frontend",
+    "vue"
+  ],
+  "feedback": "https://github.com/SolaceDev/solace-dev-codelabs/blob/master/markdown/android-test",
+  "url": "index"
+}

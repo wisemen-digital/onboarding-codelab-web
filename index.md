@@ -785,9 +785,18 @@ Now that we have created the login flow, we can start with creating the todo vie
 After completing the login functionality, you should now have a good understanding of how we're going to create the todo view.
 
 ### Model
-We are going to start by creating a file called `todo.model.ts` in the `src/modules/todos/models` folder.
+We are going to start by creating a file called `todo.model.ts` in the `src/models/todos/index` folder.
+We make an index-directory because we are also going to add a DTO model later on called `todoDto.model.ts`.
 
-This file will contain an interface that will represent a single todo with the following properties:
+We do this to create a separation between the model that we use in our frontend and the model that we receive from the backend. 
+
+this is a good practice because the data that we receive from the backend is not always in the format that we want to use in our frontend. And when the BE changes the data structure, we only have to change the DTO model.
+
+We are also going to need a transformer to transform the data that we receive from the backend into the format that we want to use in our frontend. 
+this file will be called `todo.transformer.ts` and will be places in the `src/models/todos` folder.
+
+
+`todo.model.ts` will contain an interface that will represent a single todo with the following properties:
 ```typescript
 export interface Todo {
   uuid: string
@@ -798,24 +807,52 @@ export interface Todo {
 }
 ```
 
+`todoDto.model.ts` will contain an interface that will represent a single todo with the following properties (this is the data that we receive from the backend):
+```typescript
+export interface TodoDto {
+  uuid: string
+  title: string
+  description: string
+  deadline: string
+  is_completed: boolean
+}
+```
+
+`todo.transformer.ts` will contain a Class that will transform the data that we receive from the backend into the format that we want to use in our frontend. 
+In this example both types are exactly the same, but in a real project this will not always be the case. 
+```typescript
+import { TodoDto } from './todoDto.model'
+import { Todo } from './todo.model'
+
+export class TodoTransformer {
+  static fromDto(data: TodoDto): Todo {
+    return {
+      uuid: data.uuid,
+      title: data.title,
+      description: data.description,
+      deadline: data.deadline,
+      isCompleted: data.is_completed,
+    }
+  }
+}
+```
+
 ### Service
 After creating the model that we want to use in our frontend, 
-we are going to create a file 'todo.service.ts' in the `src/modules/todos/services` folder. 
+we are going to create a file 'todo.service.ts' in the `src/modules/todos/api/services` folder. 
 
-This service will contain a function `TodoService` that returns another function called `getAll`.
+This service will contain a class `TodoService` with a static `getAll` method.
+
+This is the place where we will use our transformer. And thus the **only** place where we will use the DTO model.
 
 ```typescript
 export class TodoService {
   static async getAll(): Promise<Todo[]> {
     const response = await httpClient.get('/todos')
-    return response.items
+    return response.data.map((todo: TodoDto) => TodoTransformer.fromDto(todo))
   }
 }
 ```
-
-> aside positive
-> In a production project we would add an extra object called a "data transfer object" (DTO) 
-> so that we can transform the data that is received from the backend into a format that is easier to work with. 
 
 ### Query
 Next up we are going to create a query called `useTodoIndexQuery`.
@@ -836,7 +873,7 @@ export function useTodoIndexQuery() {
 ```
 
 > aside positive
-> **LIFE PRO TIP**: If you're not sure how to use `useQuery`, you can take a look at the [Vue Query documentation](https://tanstack.com/query/v4/docs/vue/guides/queries).
+> **LIFE PRO TIP**: If you're not sure how to use `useQuery`, you can take a look at the [Vue Query documentation](https://tanstack.com/query/v4/docs/vue/guides/queries) (do it now!).
 
 ### List component
 Once we have created the query, we can start with creating a list component that will be used to display the todo's.
@@ -901,7 +938,7 @@ Modals are allowed to be smart components. The modal will contain a form that al
 for creating a new todo.
 
 ### Form model
-We are going to start by creating a file called `todoForm.model.ts` in the `src/modules/todos/models` folder.
+We are going to start by creating a file called `todoForm.model.ts` in the `src/models/todos/models` folder.
 
 This file will contain a form schema that will be used to create a new todo
 ```typescript

@@ -1,0 +1,407 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Wiselab Onboarding Frontend</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="index"
+                  title="Wiselab Onboarding Frontend"
+                  environment="web"
+                  feedback-link="https://github.com/SolaceDev/solace-dev-codelabs/blob/master/markdown/android-test">
+    
+      <google-codelab-step label="What you&#39;ll learn: overview" duration="0">
+        <h3 is-upgraded>First of all, welcome to <strong>Wisemen!</strong> We are happy to have you here and we hope you will have a great time working with us.</h3>
+<p class="image-container"><img style="width: 200.00px" src="img/d669aaa2bdd4e2f4.png"></p>
+<p>Welcome to the frontend onboarding! In this onboarding you will learn how development happens at Wisemen. You will learn how to work with Vue, Vite, Tailwind, Figma, BitBucket/GitHub, Jira, and more.</p>
+<p>This onboarding is designed to be completed in roughly 3-4 days. This does not mean you have to complete it in 3-4 days. People with more experience will be able to complete it faster than people with less experience.</p>
+<p>You will be working on a small to-do app. This app will be used to learn the same way we, as front-end developers work at Wisemen. You will be working with the tools we use at Wisemen and you will be working with the same workflow.</p>
+<p>We also expect you to make pull request of your work so your buddy can review your code and keep track of your progress. The way we do this will be explained in the onboarding.</p>
+<p>Good luck on becoming the front-end developer you are meant to be!</p>
+<p class="image-container"><img src="img/d3b2ce433e16ef41.gif"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What you need: Prerequisites" duration="0">
+        <h2 is-upgraded>IDE</h2>
+<p>There are 2 different IDE&#39;s you can use to work with Vue. You can use either <strong>Visual Studio Code</strong> or <strong>WebStorm</strong>. The Choice is yours, so choose wisely.</p>
+<h3 is-upgraded>WebStorm</h3>
+<p>WebStorm is a JavaScript IDE with complete set of tools for client-side and server-side development and testing. It provides code completion, on-the-fly error detection, powerful navigation and refactoring for JavaScript, TypeScript, CSS, HTML and more.</p>
+<p>Webstorm is a paid IDE. You can get a license from Wisemen. Ask your buddy!</p>
+<p><a href="https://www.jetbrains.com/webstorm/download" target="_blank">Download WebStorm</a></p>
+<p>Handy Plugins:</p>
+<ul>
+<li><strong>Atom Material Icons</strong> (cool file and folder icons)</li>
+<li><strong>Bitbucket pull</strong> requests (The plugin allows you to review Atlassian Bitbucket pull requests right in the IDE.)</li>
+<li><strong>GitHub CoPilot</strong> (AI pair programmer)</li>
+<li><strong>Easy i18n</strong> (i18n support in WebStorm)</li>
+<li><strong>IntelliVue</strong> (Vue.js support for WebStorm)</li>
+</ul>
+<h3 is-upgraded>Visual Studio Code</h3>
+<p>Visual Studio Code is a source-code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, syntax highlighting, intelligent code completion, snippets, and code refactoring.</p>
+<p>Visual Studio Code is a free IDE. You can download it from the website.</p>
+<p><a href="https://code.visualstudio.com/download" target="_blank">Download vscode</a></p>
+<p>Handy Plugins:</p>
+<ul>
+<li><strong>Volar</strong> (processing vue files)</li>
+<li><strong>ESLint</strong> (code formatting)</li>
+<li><strong>Error lens</strong> (showing errors in the code)</li>
+<li><strong>Guthub Copilot</strong> (AI pair programmer)</li>
+<li><strong>I18n ally</strong> (i18n support in vscode, managing translations)</li>
+<li><strong>Pretty Typescript Errors</strong> (formatting ts errors so they are more readable)</li>
+<li><strong>Tailwind CSS intellisense</strong> (tailwind css support)</li>
+<li><strong>VSCode-icons</strong> (cool file and folder icons)</li>
+<li><strong>TODO tree</strong> (showing all the TODO&#39;s in the project)</li>
+<li><strong>Vitest</strong> (running tests)</li>
+<li><strong>GitLens</strong> (git support)</li>
+</ul>
+<p>Choose the IDE you want to work with and download it.</p>
+<h2 is-upgraded>Node.js</h2>
+<p>Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser.</p>
+<p>Node.js is necessary to run the Vue project. You can download it from the website.</p>
+<p><a href="https://nodejs.org/en/download/" target="_blank">Download Node.js</a></p>
+<h2 is-upgraded>NPM vs PNPM</h2>
+<ul>
+<li><a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a> NPM is the default package manager for the JavaScript runtime environment Node.js. The NPM program is installed on Node.js when you install it from its website.</li>
+<li><a href="https://pnpm.io/installation" target="_blank">PNPM</a> PNPM is a fast, disk space efficient package manager. It is designed to be installed globally, and it installs all the packages that you need in your project in a single place, using symlinks.</li>
+</ul>
+<p>The difference between NPM and PNPM is that PNPM uses symlinks to link packages to your project. This means that if you have multiple projects that use the same package, it will only be installed once on your computer. This saves a lot of disk space. PNPM is also faster than NPM because it uses symlinks.</p>
+<h2 is-upgraded>Figma</h2>
+<p>Our designers work with <strong>Figma</strong>. Figma is a vector graphics editor and prototyping tool which is browser-based or can be installed on macOS or Windows. We recommend you to install the desktop app.</p>
+<p><a href="https://www.figma.com/downloads/" target="_blank">Download Figma</a></p>
+<p>Take a look around in Figma and try to get familiar with the tool. You will be using it a lot in the future. You can view all of our designs here:</p>
+<p><a href="https://www.figma.com/files/team/1070403287155222588/Wisemen?fuid=1070747045190465434" target="_blank">Wisemen Figma</a></p>
+<p>To access the designs you need to log in with your Wisemen account: <a href="https://www.figma.com/file/hebgv4Qx8VanMAQkO1NFpa/Onboarding-to-do?node-id=407-4095&t=2qdyy89lKwN7dFw3-0" target="_blank">Todo wireframes</a></p>
+<h2 is-upgraded>BitBucket repository</h2>
+<p>Bitbucket is a web-based version control repository hosting service owned by Atlassian, for source code and development projects that use the Git revision control system.</p>
+<p>All your future projects will be hosted on BitBucket.</p>
+<p><a href="https://bitbucket.org/product" target="_blank">Wisemen BitBucket</a></p>
+<p>If you are not yet familiar with Bitbucket and/or Git, Here is great article to get you started: <a href="https://www.atlassian.com/git/tutorials/what-is-version-control" target="_blank">Bitbucket Git tutorial</a></p>
+<p>We also expect you to make pull request of your work so your buddy can review your code and keep track of your progress. In the article above you can find a section about pull requests to get you started!</p>
+<h2 is-upgraded>Jira access</h2>
+<p>For this onboarding you will be working with Jira to track your progress. You can find the Jira board here: <a target="_blank">Jira Todo</a></p>
+<p>Jira is used to track the progress of your project and manage the tasks that need to be done. All the requirements for the to-do app are in the Jira. You will be creating tasks in the Jira to keep track of your progress. (weet niet of ze zelf ticketjes hiervoor moeten maken of we ze dat geven?)</p>
+<p>The Jira contains all the requirements for creating the to-do app.</p>
+<p><em>ToDo: Add link to Jira</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What you&#39;ll do" duration="0">
+        <h2 is-upgraded>Project explanation</h2>
+<p>You will be creating a simple to-do app. The app can be used to create, edit and delete to-do&#39;s. The backend is already created and you can find the documentation here:</p>
+<p><a href="https://bitbucket.org/wisemen/wisemen-onboarding-backend/src/master/" target="_blank">Backend documentation</a></p>
+<h2 is-upgraded>Requirements</h2>
+<ul>
+<li>Login with your Wisemen gmail account</li>
+<li>View your to-do&#39;s in a list</li>
+<li>Create a new to-do</li>
+<li>Edit a to-do</li>
+<li>Delete a to-do</li>
+<li>Mark a to-do as done</li>
+</ul>
+<h2 is-upgraded>Designs</h2>
+<p>Insert designs here</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Project setup" duration="0">
+        <p class="image-container"><img style="width: 300.00px" src="img/3a38c423de32e7d6.gif"></p>
+<h2 is-upgraded>1. Generate a new Vue3 project</h2>
+<p>We use the latest version of Vue3 for this project. Vue3 is the latest version of Vue and has some new features and improvements over Vue2. You can read more about Vue3 here: <a href="'https://v3.vuejs.org/'" target="_blank">Vue3 website</a> Make sure you use the CLI version to create the project.</p>
+<p class="image-container"><img style="width: 120.00px" src="img/8563a845e4e0783.png"></p>
+<h2 is-upgraded>2. Vite</h2>
+<p>Vite is a new breed of frontend build tool that significantly improves the frontend development experience. It consists of two major parts:</p>
+<ul>
+<li>A dev server that provides rich feature enhancements over native ES modules, for example extremely fast Hot Module Replacement (HMR) that updates your changes in the browser in as little as 16 milliseconds.</li>
+<li>A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production.</li>
+</ul>
+<h3 is-upgraded>2.1 Config</h3>
+<p>Vite is configured using a <code>vite.config.js</code> file in the root of your project. This file is written in CommonJS format and should export a plain JavaScript object. Make sure to change this file from <code>.js</code> to <code>.ts</code></p>
+<h3 is-upgraded>2.2 Plugins</h3>
+<p>Vite supports a plugin system that allows you to customize the behavior of Vite itself and integrate with other tools. Plugins can be configured in the <code>vite.config.js</code> file.</p>
+<p class="image-container"><img style="width: 120.00px" src="img/77319276a50ef6e2.svg"><img style="width: 80.00px" src="img/e928ed8db9cc0dfc.png"><img style="width: 140.00px" src="img/dfe97ec160a15cc.png"></p>
+<h2 is-upgraded>3. Package.json</h2>
+<p>The package.json file is used to give information to npm that allows it to identify the project as well as handle the project&#39;s dependencies. npm can install the packages you specify in your package.json file. The main use of the package.json file is to list the packages that your project depends on and to ensure that your colleagues get the same packages when they do <code>npm install</code>.</p>
+<h3 is-upgraded>3.1 Scripts</h3>
+<p>The scripts property is used to specify a list of scripts that can be run using <code>npm run <script-name></code>. It&#39;s written as a JSON object where each key is the name of a script and the value is the command to run for. Most common scripts are <code>start</code> and <code>build</code>.</p>
+<h3 is-upgraded>3.2 Dependencies vs Dev Dependencies</h3>
+<p>Dev dependencies are dependencies that are only used during development and are not required for production. Dependencies are required for production.</p>
+<p class="image-container"><img style="width: 120.00px" src="img/889687876bb738c7.png"></p>
+<h2 is-upgraded>4. Tailwind CSS</h2>
+<p>Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces. It&#39;s completely customizable, completely extensible, and amazingly feature-rich.</p>
+<h3 is-upgraded>4.1 Tailwind config</h3>
+<p>Tailwinds config file is used to configure the framework. You can add custom colors, fonts, breakpoints and more. This is where you can customize the framework to your needs.</p>
+<p>👉 <a href="https://tailwindcss.com/" target="_blank">Tailwind website</a></p>
+<p class="image-container"><img style="width: 120.00px" src="img/8911e1f3be67a076.png"></p>
+<h2 is-upgraded>5. ESLint config</h2>
+<p>ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs. Is helps a lot with code formatting and makes it easier to write code. Also in team projects it helps to keep the code consistent.</p>
+<p>👉 <strong>Please make sure you use the Wisemen ESLint config file, read more here: </strong><a href="https://thefrontendbible.com/eslint-config" target="_blank"><strong>The Frontend bible ESLint config</strong></a></p>
+<p class="image-container"><img style="width: 120.00px" src="img/fd89415e7655eac6.svg"></p>
+<h2 is-upgraded>6. i18n</h2>
+<p>i18n is a short name for internationalization. It is a process of designing and developing a software application so that it can be adapted to various languages and regions without engineering changes. Within the company we use <a href="https://vue-i18n.intlify.dev/" target="_blank">Vue i18n</a> to translate our applications. It&#39;s important to understand the power of this tool since it will save you a lot of time when creating multilingual applications.</p>
+<p class="image-container"><img style="width: 120.00px" src="img/fd66fac0101a12f4.png"></p>
+<h2 is-upgraded>7. What the Typescript</h2>
+<p>TypeScript is a tool that helps developers write code with fewer bugs. TypeScript is a superset of JavaScript, meaning any valid JavaScript code is also valid TypeScript code. It helps a lot with type checking and makes it easier to write code.</p>
+<h3 is-upgraded>7.1 Typescript config</h3>
+<p>The TypeScript config file is used to configure the TypeScript compiler. You can add custom types, change the compiler options and more.</p>
+<p class="image-container"><img style="width: 220.00px" src="img/25001ee0ba2e0bb4.png"></p>
+<h2 is-upgraded>8. ⚠️ Google fonts ⚠️</h2>
+<p>It&#39;s important to know that we cannot use Google fonts CDN in our projects. This rule is only for public websites of our clients. We have alternative ways of using Google fonts in our projects.</p>
+<p>👉 <strong>Please read more here: </strong><a href="https://appwise.atlassian.net/wiki/spaces/FRONT/pages/631734284/Afstappen+van+Google+Fonts+en+CDN+javascript" target="_blank"><strong>Afstappen van Google Fonts en CDN javascript</strong></a><strong>. If you have any questions about this, please contact your team lead.</strong></p>
+<h2 is-upgraded>9. @ Alias for src folder</h2>
+<p>In our vue imports, we can use the @ alias to import files from the src folder. This is a lot easier than using relative paths. For example:</p>
+<pre><code language="language-js" class="language-js">import { Button } from &#39;@/components
+</code></pre>
+<p>instead of:</p>
+<pre><code language="language-js" class="language-js">import { Button } from &#39;../../components&#39;
+</code></pre>
+<p>This alias is configured in the <code>vite.config.js</code> file. Maybe do a little research about how you can configure your vite environment to accept the usage of this alias.</p>
+<h2 is-upgraded>10. Important files</h2>
+<h3 is-upgraded>10.1 .env</h3>
+<p>The <code>.env</code> file is used to store environment variables. These variables can be used in your application. It is mainly used to separate development and production variables. For example, you can use a different API url in development than in production. Most of our projects have 3 different <code>.env</code> files: <code>.env.development</code>, <code>.env.staging</code> and <code>.env.production</code>. Locally you can override these variables by creating a <code>.env.local</code> file. This file will be ignored by git.</p>
+<p><code>⚠️ Using an .env is not required for this project.</code></p>
+<h3 is-upgraded>10.2 .gitignore</h3>
+<p>The <code>.gitignore</code> file is used to tell git which files it should ignore. For example, you don&#39;t want to commit your node_modules folder to git. This file is used to tell git to ignore this folder.</p>
+<h2 is-upgraded>That&#39;s it for now! 🎉 Soak it all in and let&#39;s get started with the project setup! 🚀</h2>
+<p class="image-container"><img style="width: 400.00px" src="img/677749791d2a18f.gif"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Project Structure" duration="0">
+        <p class="image-container"><img style="width: 300.00px" src="img/ff3a1fadf600aa1f.gif"></p>
+<h2 is-upgraded>Folder structure</h2>
+<p>For this project we will be using a ‘split-by-type&#39; folder structure. This is recommended for small applications.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/project-structure" target="_blank">Folder structure</a></p>
+<h2 is-upgraded>Components</h2>
+<p>Components are the building blocks of Vue.js applications. They are self-contained pieces of code that can be reused throughout your application.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/components" target="_blank">Components</a></p>
+<h2 is-upgraded>Views</h2>
+<p>Views are the pages of your application. They are the components that are rendered when a specific route is visited.</p>
+<p>You can read more about it here: <a href="https://v3.vuejs.org/guide/routing.html#basic-routes" target="_blank">Views</a></p>
+<h2 is-upgraded>Router</h2>
+<p>The router is the core of Vue.js applications. It is used to navigate between different views.</p>
+<p>You can read more about it here:</p>
+<ul>
+<li><a href="https://thefrontendbible.com/reusable-code/router" target="_blank">Best practices</a></li>
+<li><a href="https://v3.vuejs.org/guide/routing.html#basic-routes" target="_blank">Router</a></li>
+</ul>
+<h2 is-upgraded>Stores</h2>
+<p>Stores are used to store the state of your application. This is useful when you want to share data between different components.</p>
+<p>You can read more about it here:</p>
+<ul>
+<li><a href="https://thefrontendbible.com/reusable-code/stores" target="_blank">Best practices</a></li>
+<li><a href="https://pinia.esm.dev/" target="_blank">Pinia</a></li>
+</ul>
+<h2 is-upgraded>Services &amp; Http</h2>
+<p>Services are used to fetch data from the backend. These backend calls are made using the Http client.</p>
+<p>You can read more about it here:</p>
+<ul>
+<li><a href="https://thefrontendbible.com/reusable-code/services" target="_blank">Best practices</a></li>
+</ul>
+<h3 is-upgraded>Vue query</h3>
+<p>For fetching data from the backend we use <a href="https://tanstack.com/query/v4/docs/vue/overview" target="_blank">Vue Query</a>. Vue Query is a Vue plugin that makes it easy to fetch, cache and update asynchronous data in your components without the hassle of setting up a dedicated global store.</p>
+<h2 is-upgraded>Composables &amp; Utils</h2>
+<h3 is-upgraded>Utils</h3>
+<p>Utils are reusable pieces of code that can be throughout your application. They contain no state and are not tied to a specific component.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/reusable-code/utils" target="_blank">Utils</a></p>
+<h3 is-upgraded>Composables</h3>
+<p>Composables look like a util function, but the main difference is that they can contain state and leverage the reactivity of Vue.js.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/reusable-code/composables" target="_blank">Composables</a></p>
+<h2 is-upgraded>Assets</h2>
+<p>Assets are files that are used throughout your application. This can be images, fonts, icons, etc.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/assets" target="_blank">Assets</a></p>
+<h2 is-upgraded>Locales</h2>
+<p>Locales are used to store the translations of your application. This is useful when you want to support multiple languages.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/locales" target="_blank">Locales</a></p>
+<h2 is-upgraded>Types &amp; Interfaces</h2>
+<p>At Wisemen we use Typescript to type all of our code. This is useful when you want to make sure that your code is correct and leverage the power of intellisense. It will also help you to avoid bugs, improve your code quality and make your code more readable.</p>
+<p>Lastly, your team will be able to understand your code better and don&#39;t have to make assumptions about the code.</p>
+<p>You can read more about it here: <a href="https://thefrontendbible.com/types" target="_blank">Types &amp; Interfaces</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Overview" duration="0">
+        <p>Now that we have a basic understanding of the project structure and the different kinds of elements that a frontend should contain, let&#39;s get started with building the acutal application.</p>
+<p>Before we can create, update and delete todo&#39;s, we need to be able to login to the application. There are several components that we need to create before we can start with the authentication flow.</p>
+<p>We will need to create a view that contains a login form. This form will be used to send the login credentials to the backend. We will also need to create a service that will be used to send the login request to the backend. Lastly, we will need to create a store that will be used to store the user information. After we have created these components, we can start with the authentication flow.</p>
+<p>Once the user is logged in, we will need to create a view that contains a list of todo&#39;s. This list will be fetched from the backend and displayed in a list view. We will also need to create a service that will be used to fetch the todo&#39;s from the backend and a store that will be used to store the todo&#39;s.</p>
+<p>After we have created these components, we can start with creating todo&#39;s. We will need to create a view that contains a form that can be used to create a new todo. We will also need to create a service that will be used to send the todo to the backend.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Http client" duration="0">
+        <p>The most important aspect of programming is <strong>separation of concerns.</strong> and <strong>DRY</strong> (Don&#39;t Repeat Yourself). This means that you should separate your code into different layers and files. This will make your code more readable, reusable and easier to maintain.</p>
+<p>You can easily do your calls in the component itself, but this will make your component less readable and harder to maintain in the future.</p>
+<p>That&#39;s why we will start with creating a service that will be used to send the login request to the backend.</p>
+<h2 is-upgraded>Creating the HTTP client</h2>
+<ul>
+<li>Add the <code>axios</code> package to the project.</li>
+<li>Create a new file called <code>httpClient.ts</code> in the <code>src/http</code> folder.</li>
+<li>Create a new instance of axios and export it.</li>
+<li>Add an interceptor that will be used to add the <code>Authorization</code> header to all requests.</li>
+</ul>
+<h2 is-upgraded>Creating the auth service</h2>
+<ul>
+<li>Create a new file called <code>auth.service.ts</code> in the <code>src/services</code> folder.</li>
+<li>Import the <code>httpClient</code> from the <code>src/http</code> folder.</li>
+<li>Create a new function called <code>login</code> that takes a <code>username</code> and <code>password</code> as parameters.</li>
+<li>Use the <code>httpClient</code> to make a <code>POST</code> request to the <code>/login</code> endpoint.</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Router" duration="0">
+        <p>The router is the core of Vue.js applications. It is used to navigate between different views. It is also used to add guards to specific routes. This is useful when you want to protect a route from being accessed by unauthorized users.</p>
+<h2 is-upgraded>Creating the router</h2>
+<ul>
+<li>Create a new file <code>router.ts</code> in the <code>src/router</code> folder.</li>
+<li>Implement a router using the <code>createRouter</code> function from <code>vue-router</code>.</li>
+<li>Create empty components called <code>LoginView.vue</code> and <code>TodoView.vue</code> in the <code>src/views</code> folder.</li>
+<li>Add a <code>login</code> and <code>todos</code> route to the router that lazy loads the <code>LoginView</code> and <code>TodoView</code> components.</li>
+</ul>
+<h2 is-upgraded>Router guards</h2>
+<ul>
+<li>Add a <code>beforeEnter</code> guard to the <code>todos</code> route that checks if the user is logged in.</li>
+<li>If the user is not logged in, redirect the user to the <code>login</code> route.</li>
+<li>If the user is logged in, continue to the <code>todos</code> route.</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Auth store" duration="0">
+        <h2 is-upgraded>Creating the auth store</h2>
+<p>The store will help us to save the tokens after a successful login. Another reason to use a store is to manage your loading state. This will help us to show a loading indicator when the user is logging in. That&#39;s why we will always use a store to do our backend calls and never directly use the service in the component. (separation of concerns)</p>
+<ul>
+<li>Create a new file called <code>auth.store.ts</code> in the <code>src/stores</code> folder.</li>
+<li>Import the <code>auth.service</code> from the <code>src/services</code> folder.</li>
+<li>Create a new store using the <code>defineStore</code> function from <code>pinia</code>.</li>
+<li>Add a <code>accessToken</code> and <code>refreshToken</code> property to the store.</li>
+<li>Add a <code>login</code> function to the store that takes a <code>username</code> and <code>password</code> as parameters.</li>
+<li>Use the <code>auth.service</code> to make a <code>POST</code> request to the <code>/login</code> endpoint.</li>
+<li>Save the <code>accessToken</code> and <code>refreshToken</code> in the store after a successful login.</li>
+<li>PRO TIP: You can use the <code>useLocalStorage</code> composable from VueUse to store the user information in the local storage.</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Login view" duration="0">
+        <p>Now that we have created the store, service and router, we can start with creating the login view. Views are the &#34;Smart components&#34; in our application. They are allowed to import stores, routers, dumb components, etc.</p>
+<p>Our Login view will orchestrate the login flow. It will use the <code>authStore</code> to login the user and the <code>router</code> to navigate to the <code>TodoView</code> after a successful login.</p>
+<h2 is-upgraded>Creating your Login view</h2>
+<ul>
+<li>Create a view called <code>LoginVue.vue</code> in the <code>src/views</code> folder.</li>
+<li>Create a new file called <code>LoginForm.vue</code> in the <code>src/components</code> folder.</li>
+<li>Add a form that allows the user to enter a <code>username</code> and <code>password</code>.</li>
+<li>Add the <code>LoginForm</code> component to the <code>Login.vue</code> view.</li>
+</ul>
+<h2 is-upgraded>Creating the login flow</h2>
+<ul>
+<li>Import the <code>useAuthStore</code> and <code>useRouter</code> in your <code>LoginView</code>.</li>
+<li>Create a new <code>authStore</code> and <code>router</code> instance.</li>
+<li>Add a <code>login</code> function that passes the credentials from the form to the <code>authStore</code>.</li>
+<li>Use the <code>router</code> to navigate to the <code>TodoView.vue</code> view after successfully logging in.</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Displaying todo&#39;s" duration="0">
+        <p>Now that we have created the login flow, we can start with creating the todo view. After completing the login functionality, you should now have a good understanding of how we&#39;re going to create the todo view.</p>
+<ul>
+<li>Create a <code>todo.service.ts</code> in the <code>src/services</code> folder and implement the following functions: <ul>
+<li>The <code>getAll</code> function should return a list of todos.</li>
+<li>Don&#39;t forget to type the response.</li>
+<li>The <code>useGetAll</code> function should return a <code>useQuery</code> instance that fetches the todos from the backend. (If you&#39;re not sure how to use <code>useQuery</code>, you can take a look at the <a href="https://tanstack.com/query/v4/docs/vue/guides/queries" target="_blank">Vue Query documentation</a>.)</li>
+</ul>
+</li>
+<li>Create a <code>TodoList.vue</code> in the <code>src/components</code> folder and add it to the <code>TodoView.vue</code> view. <ul>
+<li>Display a list of todos.</li>
+<li>Display a message when there are no todos</li>
+<li>Display a loading state when the todos are being fetched.</li>
+</ul>
+</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Creating Todo&#39;s" duration="0">
+        <p>Now that we have created the todo view and have a list of our existing todo&#39;s, we can start with creating new todo&#39;s.</p>
+<p>The creation of a todo will be done in a modal. This modal will be displayed when the user clicks on the <code>Create todo</code> button. Modals are allowed to be smart components. The modal will contain a form that allows to enter the required information for creating a new todo.</p>
+<ul>
+<li>Create a <code>TodoModal.vue</code> in the <code>src/components</code> folder and add it to the <code>TodoView.vue</code> view.</li>
+<li>Create a <code>TodoForm</code> component add it to the <code>TodoModal</code>. <ul>
+<li>The user can create a new todo by providing a <code>title</code>, <code>description</code> and <code>deadline</code>.</li>
+</ul>
+</li>
+<li>Add validation to the form.</li>
+<li>Add a <code>create</code> function to the <code>TodoService</code> that takes a <code>TodoForm</code> as parameter.</li>
+<li>In the <code>TodoService</code> create a <code>useCreate</code> function that uses the <code>create</code> function and returns a <code>useMutation</code> instance. (If you&#39;re not sure how to use <code>useMutation</code>, you can take a look at the <a href="https://tanstack.com/query/v4/docs/vue/guides/mutations" target="_blank">Vue Query documentation</a>.)</li>
+<li>Handle the click of the submit button of the form in the <code>TodoModal</code> component and call the <code>create</code> function from the <code>TodoStore</code>.</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="PROJECT: Updating todo&#39;s" duration="0">
+        <p>The last step is to allow the user to update todo&#39;s. This will be done by clicking on the edit button of a todo. We are going to extend the functionality of the <code>TodoModal</code> component to allow the user to update a todo. To achieve this, we need to know if the modal is opened in <code>create</code> or <code>update</code> mode. The easiest way to do this is to check if a todo is passed to the modal.</p>
+<ul>
+<li>Add a parameters to the <code>open</code> function of the <code>TodoModal</code> component.</li>
+<li>If a todo is passed to the modal, we are in <code>update</code> mode. If no todo is passed, we are in <code>create</code> mode.</li>
+<li>Add a <code>update</code> and <code>delete</code> function to the <code>TodoService</code> that takes a <code>TodoForm</code> as parameter.</li>
+<li>Implement the <code>update</code> and <code>delete</code> function in the <code>TodoStore</code>.</li>
+<li>Handle the click of the <strong>submit</strong> and <strong>delete</strong> button of the form in and call the correct function from the <code>TodoStore</code>.</li>
+</ul>
+<p>💡Don&#39;t forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR&#39;s small and frequent is a good practice.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Finishing up" duration="0">
+        <p>Congratulations! You have successfully completed the Vue.js workshop. Make sure that your project has been pushed to your repository and that you have created a pull request. Fix any remarks that you have received from your mentor and wait for the final feedback.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
