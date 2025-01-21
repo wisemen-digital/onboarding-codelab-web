@@ -16,7 +16,12 @@ feedback link: https://github.com/SolaceDev/solace-dev-codelabs/blob/master/mark
 <img width="200" src="img/projectSetup/Wisemen_Logo_Acid.png">
 
 In this onboarding you will learn how frontend development happens at Wisemen.
-You will learn how to work with Vue, Vite, Tailwind, Figma, Github, Linear and more.
+You will learn how we use Vue, Vite, Tailwind, Figma, Github, Linear and more to our advantage.
+
+For all our new projects we use our template together with our vue-core library.
+This template consists of all the things we need to get started quickly and don't have to reinvent the wheel every time we start a new project.
+The vue-core library is a component library that contain the most common components and composables that we use in our projects.
+It is important to know that they are both a work in progress and we try to improve them every day.
 
 This onboarding is designed to be completed in roughly 3-4 days.
 This does not mean you have to complete it in 3-4 days. 
@@ -26,15 +31,15 @@ In this codelab we are going to create a simple to-do app.
 This app will be used as example to teach you how we structure our projects, which tools and libraries we use.
 
 > aside positive
-> One important thing to know is that you will be creating most stuff from scratch in this codelab.
-> This is to make sure you understand how everything works and how the pieces are connected behind the scenes.
-> When we create projects for our customers we always start from our [project template](https://github.com/wisemen-digital/project-template-vue).
-> The project template contains pre-built features, components, tools and configurations so that we can get started quickly and don't have to reinvent the wheel every time we start a new project.
+> Important to know is that the template will do a lot of work for you.
+> We definitely recommend that you try and understand what the template does and how it works.
+> No you don't need to know everything, but it will help you to understand the project structure and the way we work.
 
 We also expect you to make pull request of your work so your buddy can review your code and keep track of your progress.
 The way we do this will be explained in the onboarding.
 
 Good luck on becoming the front-end developer you are meant to be!
+And remember, asking questions is always a good thing!
 
 ![](img/programmer.gif)
 
@@ -111,6 +116,11 @@ This saves a lot of disk space. PNPM is also faster than NPM because it uses sym
 > aside positive
 > We use PNPM in our projects.
 
+### Our template
+
+This is a good time to take a look at our template. You can find it here: [vue template](https://github.com/wisemen-digital/vue-project-template).
+Take a quick look around to get familiar with the structure of the project. Ask your buddy if you have any questions. But don't worry, we will go through it in this onboarding.
+
 ### Figma
 
 Our designers work with **Figma**.
@@ -170,6 +180,10 @@ The backend is already created and you can find the documentation here:
 
 Username: `appwise`  
 Password: `password`
+
+For ease of use we are going to mock the backend in this project. so you don't have to worry about the backend.
+You can still use the backend documentation to see how the backend works.
+This won't change anything in the way you work with the project. (Ask your buddy to setup op Mock Service Worker with you)
 
 ### Requirements
 
