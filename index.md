@@ -16,7 +16,12 @@ feedback link: https://github.com/SolaceDev/solace-dev-codelabs/blob/master/mark
 <img width="200" src="img/projectSetup/Wisemen_Logo_Acid.png">
 
 In this onboarding you will learn how frontend development happens at Wisemen.
-You will learn how to work with Vue, Vite, Tailwind, Figma, Github, Jira and more.
+You will learn how we use Vue, Vite, Tailwind, Figma, Github, Linear and more to our advantage.
+
+For all our new projects we use a self made template together with our vue-core library.
+This template consists of all the things we need to get started quickly and don't have to reinvent the wheel every time we start a new project.
+The vue-core library is a component library that contain the most common components and composables that we use in our projects.
+It is important to know that they are both a work in progress and we try to improve them every day.
 
 This onboarding is designed to be completed in roughly 3-4 days.
 This does not mean you have to complete it in 3-4 days. 
@@ -26,15 +31,15 @@ In this codelab we are going to create a simple to-do app.
 This app will be used as example to teach you how we structure our projects, which tools and libraries we use.
 
 > aside positive
-> One important thing to know is that you will be creating most stuff from scratch in this codelab.
-> This is to make sure you understand how everything works and how the pieces are connected behind the scenes.
-> When we create projects for our customers we always start from our [project template](https://github.com/wisemen-digital/project-template-vue).
-> The project template contains pre-built features, components, tools and configurations so that we can get started quickly and don't have to reinvent the wheel every time we start a new project.
+> Important to know is that the template will do a lot of work for you.
+> We definitely recommend that you try and understand what the template does and how it works.
+> No you don't need to know everything, but it will help you to understand the project structure and the way we work.
 
 We also expect you to make pull request of your work so your buddy can review your code and keep track of your progress.
 The way we do this will be explained in the onboarding.
 
 Good luck on becoming the front-end developer you are meant to be!
+And remember, asking questions is always a good thing!
 
 ![](img/programmer.gif)
 
@@ -56,7 +61,6 @@ Webstorm is a paid IDE. You can get a license from Wisemen. Ask your buddy!
 
 Handy Plugins:
 - **Atom Material Icons** (cool file and folder icons)
-- **Bitbucket pull** requests (The plugin allows you to review Atlassian Bitbucket pull requests right in the IDE.)
 - **GitHub CoPilot** (AI pair programmer)
 - **Easy i18n** (i18n support in WebStorm)
 - **IntelliVue** (Vue.js support for WebStorm)
@@ -112,6 +116,11 @@ This saves a lot of disk space. PNPM is also faster than NPM because it uses sym
 > aside positive
 > We use PNPM in our projects.
 
+### Our template
+
+This is a good time to take a quick look at our template. You can find it here: [vue template](https://github.com/wisemen-digital/vue-project-template).
+Take a quick look around to get familiar with the structure of the project. Ask your buddy if you have any questions. But don't worry, we will go through it in this onboarding.
+
 ### Figma
 
 Our designers work with **Figma**.
@@ -130,49 +139,37 @@ To access the designs you need to log in with your Wisemen account:
 
 ### Source control
 
-#### BitBucket repository
-
-Bitbucket is a web-based version control repository hosting service owned by Atlassian, for source code and development
-projects that use the Git revision control system.
-
-Some of our older projects are still hosted on BitBucket.
-
-[Wisemen BitBucket](https://bitbucket.org/product)
-
-If you are not yet familiar with Bitbucket and/or Git, Here is great article to get you started:
-[Bitbucket Git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control)
-
-We also expect you to make pull request of your work so your buddy can review your code and keep track of your progress.
-In the article above you can find a section about pull requests to get you started!
-
 #### GitHub
 
-GitHub is another web-based version control repository hosting service owned by Microsoft, for source code and development
+GitHub is a web-based version control repository hosting service owned by Microsoft, for source code and development
 projects that use the Git revision control system.
 
-Just like BitBucket, some of our projects will be hosted on GitHub. **_GitHub will be used for new projects_**.
+Our projects will be hosted on GitHub.
 
 If you are not yet familiar with GitHub, Here is great article to get you started:
 [GitHub Git tutorial](https://docs.github.com/en/get-started/start-your-journey/hello-world)
 
-Same as with BitBucket, we expect you to make pull request of your work so your buddy can review your code and keep
+We expect you to make pull request of your work so your buddy can review your code and keep
 track of your progress.
 
 > aside positive
 > We switched to GitHub for our new projects. 
 > You can find our GitHub organization here: [Wisemen GitHub](https://github.com/wisemen-digital)
 
-### Jira access
+### Linear access
 
-For this onboarding you will be working with Jira to track your progress. You can find the Jira board here:
-[Jira Todo]()
+For this onboarding you will be working with Linear to track your progress. You can find the Linear board here:
+[Linear Todo]()
 
-Jira is used to track the progress of your project and manage the tasks that need to be done.
-All the requirements for the to-do app are in the Jira. You will be creating tasks in the Jira to keep track of your progress.
+Linear is used to track the progress of your project and manage the tasks that need to be done.
+All the requirements for the to-do app are in the Linear. You will be creating tasks in the Linear to keep track of your progress.
 
-The Jira contains all the requirements for creating the to-do app.
+The Linear contains all the requirements for creating the to-do app.
 
-*ToDo: Add link to Jira*
+*ToDo: Add link to Linear*
+
+> A little tip: You can copy you're branch name from the linear ticket by using the command .
+>`cmd + shift + .` on the ticket and then paste it in your terminal.
 
 ## Project explanation
 
@@ -183,6 +180,10 @@ The backend is already created and you can find the documentation here:
 
 Username: `appwise`  
 Password: `password`
+
+For ease of use we are going to mock the backend in this project. so you don't have to worry about it.
+You can still use the backend documentation to see how the backend works.
+This won't change anything in the way you work with the project. (Ask your buddy to setup op Mock Service Worker with you!)
 
 ### Requirements
 
@@ -204,21 +205,19 @@ You can find the designs here:
 
 <img width="300" src="img/projectSetup/cat_i_am_ready.gif">
 
-### 1. A Vue3 project
+### 1. Vue 3 Project template
 
-We use the latest version of Vue for this project. Vue3 is the latest version and has some new features and
+We use the latest version of Vue in our template. Vue3 is the latest version and has some new features and
 improvements over Vue2. You can read more about Vue3 here: [Vue3 website](https://vuejs.org/)
-Make sure you use the CLI version to create the project.
 
+First of all open the project template in GitHub and click on the `Use this template` button to create a new repository.
+Make your own repository and clone it to your local machine. Open the project in your editor and install the dependencies with `pnpm install`.
+Than run the project using `pnpm dev`.
 
-Create new project using the Vue CLI:
-```shell
-pnpm create vue@latest
-```
+Github Template link: [Vue project template](https://github.com/wisemen-digital/vue-project-template)
 
-Use the following settings:
-
-<img width="1000" src="img/vue-cli-config.png">
+You will be greeted with a login page that is already there for you. You should be able to log in with your Wisemen email.
+Take a look around and try to understand the project structure.
 
 ---
 
@@ -232,10 +231,7 @@ of two major parts:
 - A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for
   production.
 
-#### 2.1 Config
-
-Vite is configured using a `vite.config.js` file in the root of your project. This file is written in CommonJS format
-and should export a plain JavaScript object. Make sure to change this file from `.js` to `.ts`
+This is configured in the template and you don't have to worry about it. But it's good to know what it is and how it works.
 
 #### 2.2 Plugins
 
@@ -287,8 +283,7 @@ making code more consistent and avoiding bugs. Is helps a lot with code formatti
 Also in team projects it helps to keep the code consistent.
 
 > aside positive
-> Please make sure you use the Wisemen ESLint config file in your project, 
-> you can read how to configure it here: [The Frontend bible ESLint config](https://thefrontendbible.com/eslint-config)
+> We use our own ESLint config in our projects. and it is already available in the template.
 
 <img width="120" src="img/projectSetup/vue_i18n_logo.svg">
 
@@ -314,15 +309,6 @@ compiler options and more.
 
 <img width="220" src="img/projectSetup/google_fonts_logo.png">
 
-### 8. ⚠️ Google fonts ⚠️
-
-It's important to know that we cannot use Google fonts CDN in our projects. This rule is only for public websites of
-our clients.
-We have alternative ways of using Google fonts in our projects.
-
-> aside negative 
-> Please read more here: [Afstappen van Google Fonts en CDN javascript](https://appwise.atlassian.net/wiki/spaces/FRONT/pages/631734284/Afstappen+van+Google+Fonts+en+CDN+javascript). 
-> If you have any questions about this, please contact your team lead.
 
 ### 9. @ Alias for src folder
 
@@ -352,8 +338,6 @@ It is mainly used to separate development and production variables. For example,
 development than in production. Most of our projects have 3 different `.env` files: `.env.development`, `.env.staging` and `.env.production`.
 Locally you can override these variables by creating a `.env.local` file. This file will be ignored by git.
 
-`⚠️ Using an .env is not required for this project.`
-
 #### 10.2 .gitignore
 
 The `.gitignore` file is used to tell git which files it should ignore. For example, you don't want to commit your
@@ -369,13 +353,37 @@ node_modules folder to git. This file is used to tell git to ignore this folder.
 
 ### Folder structure
 
-For this project we will be using a 'split-by-module' folder structure. Although 'split-by-module' is mainly recommended for medium to large applications, we will still use it here. As you won't be working on small applications for long 😉;
+The template uses 'split-by-module' folder structure. Although 'split-by-module' is mainly recommended for medium to large applications, we will still use it here. As you won't be working on small applications for long 😉;
 
 You can read more about it here: [Folder structure](https://thefrontendbible.com/project-structure)
 
 ### Assets
 
 Assets are files that are used throughout your application. This can be images, fonts, icons, etc.
+Inside the assets folder, you will already find a `styles` folder. Inside you will find a `base.css`, `tailwind.css` and a `colors.css` file.
+
+The `base.css` file will be imported in the `main.ts` file and is used to import all the other css files and set some base css rules.
+The `tailwind.css` file is used to configure tailwind theme variables (read it [here](https://tailwindcss.com/docs/theme#theme-variable-namespaces)).
+
+The `colors.css` file is used to define all the colors that are used in the application. you should never change this file beacuse it
+is carefully crafted to match our design system. To change colors you must look inside the `themes` directory. Here you will fiind a 
+`default.css` file. And if you need more than 1 theme you can add more files here.
+
+So the `default.css` file will set the colors in to css-variables, and the `colors.css` file will import these variables and put them into more application specific variables to match our design system.
+And these variables will be set in the `tailwind.css` file.
+
+### client
+
+In this folder you will find files generated from the the back ends documentation using OpenApi-plugin. 
+Inside are all the types for your DTO's and functions to fetch data. If the backend changes you can regenerate these files.
+
+more on the OpenApi plugin [bible of docs link?]() 
+
+### Component Styles
+
+Inside this directory you can add new styling variants for components coming form the vue-core component library.
+
+more info is in the [bible]()
 
 ### Components
 
@@ -399,6 +407,9 @@ Configs are used to store configuration values for plugins/packages that are use
 
 Constants are used to store hardcoded values that are used throughout your application.
 
+### Helpers
+a place for helper functions that are used throughout your application.
+
 ### Icons
 
 Icons are used to store the icons that are used throughout your application.
@@ -407,10 +418,19 @@ Icons are used to store the icons that are used throughout your application.
 
 Libs are used to store the libraries that are used throughout your application.
 
+### locales
+
+Locales are used to store the translations of your application. This is useful when you want to support multiple
+
 ### Middlewares
 
 Middlewares acts like a bridge between the backend and the frontend. They are used to transform the data that is
 received from the backend or route protection.
+
+### Mocks
+
+Mocks are used to mock the data that is received from the backend. This is useful when you want to develop without a working
+backend or for testing purposes.
 
 ### Models
 
@@ -426,7 +446,6 @@ application. Here is a list of some important folders inside the modules folder:
 - Components: This folder is used to store the components that are used throughout the module.
 - features: This folder is used to store the features that are used throughout the module.
 - routes: This folder is used to store the routes that are used throughout the module.
-- stores: This folder is used to store the stores that are used throughout the module.
 
 ### Plugins
 
@@ -453,11 +472,6 @@ You can read more about it here:
 - [Best practices](https://thefrontendbible.com/reusable-code/stores)
 - [Pinia](https://pinia.esm.dev/)
 
-### Transformers
-
-Transformers are used to transform the data that is received from the backend. This is useful when you want to transform
-the data into a format that is easier to work with. This should be a single file per module.
-
 ### Transitions
 
 Transitions are used to add animations to your application. This is useful when you want to add a smooth transition
@@ -469,12 +483,6 @@ Utils are reusable pieces of code that can be throughout your application.
 They contain no state and are not tied to a specific component.
 
 You can read more about it here: [Utils](https://thefrontendbible.com/reusable-code/utils)
-
-### Views
-
-Views are the pages of your application. They are the components that are rendered when a specific route is visited.
-
-You can read more about it here: [Views](https://v3.vuejs.org/guide/routing.html#basic-routes)
 
 ### Worth mentioning
 
@@ -490,12 +498,6 @@ You can read more about it here:
 
 - [Best practices queries](https://thefrontendbible.com/reusable-code/queries)
 - [Best practices mutations](https://thefrontendbible.com/reusable-code/mutations)
-
-#### Services & Http
-
-Services are used to fetch data from the backend. These backend calls are made using the Http client.
-
-You can read more about it here:
 
 - [Best practices](https://thefrontendbible.com/reusable-code/services)
 
@@ -516,26 +518,58 @@ Lastly, your team will be able to understand your code better and don't have to 
 
 Consult the front-end bible to find out more about types and interfaces. [For example](https://thefrontendbible.com/components/props#typescript-constructor)
 
+> aside positive
+> Remember: look around in the template, try to understand the project structure and how it works.
+> If there are any files or folders that you don't understand, ask your buddy for help.
+
+## Vue-core
+
+The vue-core is a component library that contains the most common components that we use in our projects. It is a work in progress and we try to improve it every day.
+You can use the components straight out of the box. But you can also customize them, this is done by making your own style config.
+
+All the avaialble components can be found in the [vue-core documentation (wip?)]()
+
+The cool thing about the vue-core library is that you can customize the components to your needs. This is done by making your own style config.
+If you want to for example change the background color of a textfield input form to red, you can do it like this:
+
+```vue
+<script  lang="ts" setup>
+import { VcTextField } from '@wisemen/vue-core'
+import { ref } from 'vue'
+
+const model = ref<string>('')
+</script>
+
+<template>
+  <VcTextField
+    v-model="model"
+    :style-config="{
+      '--text-field-bg-color-default': 'red',
+    }"
+  />
+</template>
+```
+
+We import the `VcTextField` component from the vue-core library and create a new style config object.
+In this object we set the `--text-field-bg-color-default` variable to red. there are a lot of predefined variables that you can use to customize the components.
+
+
 ## PROJECT: Battle plan 
 
-Now that we have a basic understanding of the project structure
+Now that we have a basic understanding of the project template
 and the different kinds of elements that a frontend should contain,
 let's get started with building the actual application.
 
 - Before we can create, update and delete todo's, we need to be able to login to the application.
-There are several components that we need to create before we can start with the authentication flow. 
-- We will need to create a view that contains a login form. This form will be used to send the login credentials to the
-backend.
-- We will also need to create a service that will be used to send the login request to the backend. 
-- To complete the login flow we will need to create a store that will be used to store the user information when the user is logged in.
+Luckily for us, the template already contains a fully functional login page. 
 - Once the user is logged in, we will need to create a view that contains a list of todo's. 
 - This list will be fetched from the backend using queries and displayed in a list view. 
-- Once we can display the todos, we will need to create a modal that contains a form that can be used to create a new todo. 
+- Once we can display the todos, we will need to create a dialog that contains a form that can be used to create a new todo. 
 - Here you will learn about mutations and how to use them to update data in the backend and invalidate your queries.
 - After completing our create form, we will need to update it so that we can edit them.
 - Once we can create and edit them, we will need to add a button to delete them.
 - After we have completed these tasks, we will need to add a button to the list view that can be used to mark a todo as done.
-- To finish the project, we will need to add a logout button to log out the user.
+- If you have time left, you can add some extra features to the application. For example, you can add a search bar to search for todos, or add a filter to filter the todos by status.
 
 > aside negative
 > The snippets provided in the codelab are examples to help you get started and move you in the right direction. 
@@ -550,262 +584,103 @@ This will make your code more readable, reusable and easier to maintain.
 You can easily do your calls in the component itself, but this will make your component less readable and harder to
 maintain in the future.
 
-That's why we will start with creating a service that will be used to send the login request to the backend.
+That's why we use services to make our backend calls. This way we can separate the concerns and make our code more
+readable and maintainable.
+
+The template will do almost everything authentication related for you. You only need to change the environment variables to match the backend.
 
 ### Environment variables
 To make sure that we don't hardcode the base url of the backend in our service, we will use environment variables.
 
 - Create a new file called `.env` in the root of your project.
-- Add a new variable called `VITE_BASE_URL` and set it to the base url of the backend.
-- Do the same for the `VITE_CLIENT_ID` and `VITE_CLIENT_SECRET` variables.
+- Add a new variable called `API_BASE_URL` and set it to the base url of the backend.
+- Do the same for the `AUTH_BASE_URL`, `AUTH_CLIENT_ID` and `AUTH_ORGANIZATION_ID` variables. These will be used with Zitatel to authenticate the user.
 
+[//]: # (TODO: zet de juiste ENV's voor de todo app)
 ```env
-VITE_BASE_URL=https://onboarding-todo-api.development.appwi.se/api/v1
-VITE_CLIENT_ID=ENTER_YOUR_CLIENT_ID_HERE
-VITE_CLIENT_SECRET=ENTER_YOUR_CLIENT
+API_BASE_URL=https://vue-node.project-template.development.appwi.se/api/v1
+
+AUTH_BASE_URL=https://zitadel.internal.appwi.se
+AUTH_CLIENT_ID=294498462244882333
+AUTH_ORGANIZATION_ID=284257737964064935
+
+AUTH_GOOGLE_IDP_ID=
+AUTH_APPLE_IDP_ID=
+
+ENVIRONMENT=development
+
 ```
 
-### Creating the HTTP client
+### Using the HTTP client
 
-- Add the `axios` package to the project.
-- Create a new file called `httpClient.ts` in the `src/http` folder.
-- Create a new instance of axios and export it.
-- Add an interceptor that will be used to add the `Authorization` header to all requests.
+If you go to the `http.lib.ts` file in the `libs` folder, you will see that the `httpClient` is already created for you.
+This is a httpClient using axios in combination with zod to validate the responses. How this is handled is done in a seperate
+package created by Wisemen. If you are interested in how it works, you can look at the github repo: [github link](https://github.com/wisemen-digital/vue-core/tree/main/packages/zod-http-client)
 
-```typescript
-const httpClient: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json;charset=UTF-8',
-  },
-})
+A different method used in newer projects is to use OpenApi to generate the client. 
+This is a package that will generate the client for you based on the backend documentation. It also generates the types of the dto's which is very handy.
+This is configured in the `openapi.config.ts` file. [bible link voor openapi]()
+
+If this is configure right, you can generate everything by running the command:
+```bash
+pnpm openapi-ts
 ```
 
-### Creating the auth service
-- Create a new file called `auth.service.ts` in the `src/modules/auth/services` folder.
-- Import the `httpClient` from the `src/http` folder.
-- Create a new function called `login` that takes a `username` and `password` as parameters.
-- Use the `httpClient` to make a `POST` request to the `/login` endpoint.
-
-```typescript
-interface AuthService {
-  login: (username: string, password: string) => Promise<void>
-  getCurrentUser: () => Promise<CurrentUser>
-}
-
-export const authService: AuthService = {
-  login: async (username: string, password: string): Promise<AuthTokens> => {
-    const formData = encodeQueryData({
-      client_id: import.meta.env.VITE_CLIENT_ID,
-      client_secret: import.meta.env.VITE_CLIENT_SECRET,
-      grant_type: 'password',
-      password: password,
-      username: username,
-      scope: "read write"
-    })
-
-    const config = {
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    }
-    
-    const response = await httpClient.post('/auth/token', formData, config)
-    return response.data
-  },
-  getCurrentUser: async (): Promise<CurrentUser> => {
-    const response = await httpClient.get('/users/me')
-    return response.data
-  },
-}
-```
+After logging in, the tokens will be stored in the local storage. And the user data will be stored in the Auth Store inside the `auth.store.ts` file.
+If you want to know how this works, you can look at the bible [bible link die nog niet bestaat]()
 
 > aside positive
 > You can find the `client_id` and `client_secret` in the backend documentation.
 
 💡Don't forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR's small and frequent is a good practice.
 
-## PROJECT: Auth store
 
-### Creating the auth store
-
-The store will help us to save the tokens after a successful login.
-That's why we will always use a store to do our backend calls and never directly use the service in the component. (separation of concerns)
-
-- Create a new file called `auth.store.ts` in the `src/modules/auth/stores` folder.
-- Create a new store using the `defineStore` function from `pinia`.
-- Add a `accessToken` property to the store.
-- Add a `login` function to the store that takes a `username` and `password` as parameters.
-- Use the `AuthService` to make a `POST` request to the `/login` endpoint.
-- Save the `accessToken` in the store after a successful login.
-
-> aside positive
-> **LIFE PRO TIP**: You can use the [useLocalStorage](https://vueuse.org/core/useStorage/) composable from VueUse to store the user information directly in the local storage.
-
-```typescript
-export const useAuthStore = defineStore('auth', () => {
-  const currentUser = ref<User | null>(null)
-  const accessToken = useLocalStorage<string | null>(null)
-  
-  const isAuthenticated = computed<boolean>(() => currentUser.value === null)
-  
-  async function getCurrentUser(): Promise<User> {
-    if (currentUser.value !== null) {
-      return currentUser.value
-    }
-    
-    currentUser.value = authService.getCurrentUser()
-    return currentUser.value!
-  }
-  
-  function setCurrentUser(user: User | null): void {
-    currentUser.value = user
-  }
-  
-  async function login(data: AuthLoginForm): Promise<void> {
-    const response = await authService.login(data.username, data.password)
-    accessToken.value = response.accessToken
-  }
-  
-  function logout(): void {
-    authService.logout()
-    setCurrentUser(null)
-  }
-  
-  return {
-    currentUser,
-	isAuthenticated,
-	getCurrentUser,
-	setCurrentUser,
-	login,
-	logout,
-  }
-})
-```
-
-> aside negative
-> You will need to provide the `AuthLoginForm` en `User` type for yourself.
-
-💡Don't forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR's small and frequent is a good practice.
 
 ## PROJECT: Router
 
 The router is the core of Vue.js applications. It is used to navigate between different views.
 It is also used to handle authentication and permissions for specific routes using "guards".
-This is useful when you want to protect a route from being accessed by unauthenticated users.
+This is useful when you want to protect a route from being accessed by unauthenticated users. This is handled inside the `authMiddleware` and explained [here (bible tekst over middleware)]()
 
-### Creating the router
+### Creating new routes
 
-- Create a new file `router.ts` in the `src/router` folder.
-- Implement a router using the `createRouter` function from `vue-router`.
-- Create empty components called `AuthLoginView.vue` and `TodoOverviewView.vue` in the `src/views` folder.
-- Add a `login` and `todos` route to the router that lazy loads the `AuthLoginView` and `TodoOverviewView` components.
+The starting point of the router is the `router.ts` file in the `src/router` folder. If you take a quick look, 
+there is a place to add authenticated routes and unauthenticated routes. You can see there are already `userRoutes` and `settingRoutes`. 
+You won't need these for this project, but you can use them as an example to create your own routes.
 
-```typescript
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/login',
-    name: 'login',
-    component: async () => import('@/modules/auth/views/AuthLoginView.vue'),
-  },
-  {
-    path: '/',
-    name: 'index',
-    meta: { requiresAuth: true },
-    children: [
-      {
-        path: '/todos',
-        name: 'todos',
-      },
-    ],
-  },
-  {
-    name: 'error',
-    path: '/:pathMatch(.*)*',
-    component: async () => import('@/views/ErrorNotFoundView.vue'),
-  },
-]
+try and create a new route for your todos overview. 
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes: routes
-})
-```
+- first you need to create a new folder inside the `modules` folder called `todos`.
+- Inside this folder you need to create a `routes` folder and a `features` folder and in here you can create a `overview` folder.
+- Inside the `overview` folder create a `views` folder. You can create a `TodoOverviewView.vue` file in here. This will be the view that will show the todos.
+- Inside the `routes` folder you can create a `todos.routes.ts` file. This file will contain the routes for the todos module.
+- Try to make a route for the `TodoOverviewView.vue` view. Don't forget to also add the route to the `router.ts` file.
 
-### Router guards
-
-- Add a `beforeEach` guard to your router that checks if the user is logged in.
-- If the user is not logged in, redirect the user to the `login` route.
-- If the user is logged in, continue to the `todos` route.
-
-> aside positive
-> **LIFE PRO TIP**: You can use the `useAuthStore` to check if the user is logged in. If the user is not logged in, you can use the `router` to navigate to the `login` route.
-> If the user is logged in, you can use the `router` to navigate to the `todos` route.
-
-> aside positive
-> **LIFE PRO TIP**: You can add meta fields to your routes to check if the user is allowed to access a specific route.
-
-```typescript
-router.beforeEach(async (to, from, next) => {
-  // Add your guards here
-  
-  next()
-})
-```
+Yes, this is a lot of folders and files. But this is how we structure our projects and if you work on larger projects you will see that this is very handy. 
 
 💡Don't forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR's small and frequent is a good practice.
 
-## PROJECT: Login view
-
-Now that we have created the store, service and router, we can start with creating the login view.
-Views are the "Smart components" in our application. They are allowed to import stores, routers, dumb components, etc.
-
-Our Login view will orchestrate the login flow. It will use the `authStore` to login the user and the `router` to
-navigate to the `TodoOverviewView` after a successful login.
-
-### Creating your Login view (smart) component
-
-- Create a view called `AuthLoginView.vue` in the `src/modules/auth/views` folder.
-- Create a new file called `AuthLoginForm.vue` in the `src/modules/auth/components` folder.
-- Add a form that allows the user to enter a `username` and `password`.
-- Add the `AuthLoginForm` component to the `AuthLoginView.vue` view.
-
-### Implementing the login flow
-
-- Import the `useAuthStore` and `useRouter` in your `AuthLoginView`.
-- Create a new `authStore` and `router` instance.
-- Use the `router` to navigate to the `TodoOverviewView.vue` view after successfully logging in.
-
-```vue
-<script setup lang="ts">
-const authStore = useAuthStore()
-const router = useRouter()
-  
-async function handleLogin(data: { username: string; password: string }): Promise<void> {
-  await authStore.login(data)
-  router.push({ name: 'todos' })
-}
-</script>
-
-<template>
-<div>
-    <AuthLoginForm @submit="handleLogin" />
-</div>
-</template>
-```
-
-💡Don't forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR's small and frequent is a good practice.
 
 ## PROJECT: Displaying todo's
 
-Now that we have created the login flow, we can start with creating the todo view.
-After completing the login functionality, you should now have a good understanding of how we're going to create the todo view.
+Now that we can login and our routes are set up, we can start with displaying the todo's.
 
 ### Model
-We are going to start by creating a file called `todo.model.ts` in the `src/modules/todos/models` folder.
+First step in making an overview of data is to create a model that represents the data that we are going to display.
+We are going to start by creating a file called `todoIndex.model.ts` in the `src/models/todo/index` folder.
+We make an index-directory because we are also going to add a DTO model later on called `todoIndexDto.model.ts`.
 
-This file will contain an interface that will represent a single todo with the following properties:
+We do this to create a separation between the model that we use in our frontend and the model that we receive from the backend. 
+
+this is a good practice because the data that we receive from the backend is not always in the format that we want to use in our frontend. And when the BE changes the data structure, we only have to change the DTO model.
+
+We are also going to need a transformer to transform the data that we receive from the backend into the format that we want to use in our frontend. 
+this file will be called `todo.transformer.ts` and will be places in the `src/models/todos` folder.
+
+
+`todoIndex.model.ts` will contain an interface that will represent a single todo with the following properties:
 ```typescript
-export interface Todo {
+export interface TodoIndex {
   uuid: string
   title: string
   description: string
@@ -814,28 +689,62 @@ export interface Todo {
 }
 ```
 
-### Service
-After creating the model that we want to use in our frontend, 
-we are going to create a file 'todo.service.ts' in the `src/modules/todos/services` folder. 
-
-This service will contain a function `TodoService` that returns another function called `getAll`.
-
+`todoDto.model.ts` will contain an interface that will represent a single todo with the following properties (this is the data that we receive from the backend). You can make your own interface,
+but because we use the OpenApi plugin, the DTO's are already generated for you. so you only have to this:
 ```typescript
-interface TodoService {
-  getAll: () => Promise<Todo[]>
-}
+import type { ViewTodoIndexView } from '@/client'
 
-export const todoService: TodoService = {
-  getAll: async (): Promise<Todo[]> => {
-    const response = await httpClient.get('/todos')
-    return response.items
-  },
+export type TodoIndexDto = ViewTodoIndexView
+```
+The naming of the generated DTO's is based on the endpoint and the method. So in this case the endpoint is `todo` and the method is `index`. but you can always look in the client file to find the type you are looking for.
+
+`todo.transformer.ts` will contain a Class that will transform the data that we receive from the backend into the format that we want to use in our frontend. 
+In this example both types are exactly the same, but in a real project this will not always be the case. 
+```typescript
+import { TodoIndexDto } from './todoDto.model'
+import { TodoIndex } from './todo.model'
+
+export class TodoIndexTransformer {
+  static fromDto(data: TodoIndexDto): TodoIndex {
+    return {
+      uuid: data.uuid,
+      title: data.title,
+      description: data.description,
+      deadline: data.deadline,
+      isCompleted: data.is_completed,
+    }
+  }
 }
 ```
 
-> aside positive
-> In a production project we would add an extra object called a "data transfer object" (DTO) 
-> so that we can transform the data that is received from the backend into a format that is easier to work with. 
+### Service
+After creating the model that we want to use in our frontend, 
+we are going to create a file 'todo.service.ts' in the `src/modules/todos/api/services` folder. 
+
+This service will contain a class `TodoService` with a static `getAll` method.
+
+This is the place where we will use our transformer. And thus the **only** place where we will use the DTO model.
+We also use the generated service from the OpenApi plugin to fetch the data from the backend. (again look in the generated service file to find the right function).
+
+Important to note: the index call for getting the todo's is a paginated call. This means we have to add a offset and limit to the query params. And the data that we receive from the backend is not a list of todo's but a list of pages containing todo's.
+
+Luckily for you, the template provides some composables and helper functions to make this super easy!
+
+```typescript
+export class TodoService {
+  static async getAll(
+      paginationOptions: PaginationOptions,
+  ): Promise<PaginatedData<TodoIndex>> {
+    const response = await viewTodoIndexControllerViewTodos<true>({
+      query: new PaginationDtoBuilder(paginationOptions).build(),
+        url: '/api/v1/todos',
+    })
+    return PaginatedDataTransformerUtil.fromDto(response.data, TodoIndexTransformer.fromDto)
+  }
+}
+```
+
+If you don't understand what all these helper functions and types are for, you can always ask your buddy for a quick explanation.
 
 ### Query
 Next up we are going to create a query called `useTodoIndexQuery`.
@@ -843,25 +752,32 @@ This query will be used to call the `getAll` function from our service and fetch
 
 The reason we use queries is so that we can easily fetch, cache and update asynchronous data in our components without the hassle of setting up a dedicated global store.
 
+We use Tanstack Query for this. Read more about it [here](https://tanstack.com/query/latest/docs/framework/vue/overview)
+
 ```typescript
-export function useTodoIndexQuery() {
-  return useQuery({
-    queryKey: 'todos',
-    queryFn: async () => {
-      const data = await todoService.getAll()
-      return data
+
+export function useTodoIndexQuery(
+        paginationOptions: ComputedRef<PaginationOptions<{}>>,
+): UseQueryReturnType<PaginatedData<TodoIndex>> {
+  return useQuery<PaginatedData<TodoIndex>>({
+    queryFn: () => {
+      return TodoService.getAll(paginationOptions.value)
+    },
+    queryKey: {
+      todoIndex: {
+        paginationOptions,
+      },
     },
   })
 }
 ```
 
-> aside positive
-> **LIFE PRO TIP**: If you're not sure how to use `useQuery`, you can take a look at the [Vue Query documentation](https://tanstack.com/query/v4/docs/vue/guides/queries).
+You also have to add the query key to the `src/types/queryKey.type.ts` file. There should be examples in there to help you.
 
 ### List component
 Once we have created the query, we can start with creating a list component that will be used to display the todo's.
 
-- Create a `TodoList.vue` (dumb) component in the `src/modules/todos/components` folder.
+- Create a `TodoList.vue` (dumb) component in the `src/modules/todo/features/overview/components` folder.
 - Add a list of todo's to the component.
 - Add a message when there are no todo's.
 - Add a loading state when the todo's are being fetched from the backend.
@@ -892,14 +808,19 @@ const props = defineProps<{
 ### View
 
 The last step is to combine all of our pieces in a (smart) component that will be used to display the todo's.
-This file should be named `TodoOverviewView` and we will put this in our `src/modules/todos/views` folder.
+This file should be named `TodoOverviewView` and we will put this in our `src/modules/todo/features/overview/views` folder.
 
 This view will combine the query and list component we have created before.
 ```vue
 <script setup lang="ts">
 import { useTodoIndexQuery } from '@/modules/todos/services/todoIndex.query'
+import { TodoIndex } from '@/models/todos/todoIndex.model'
+import {computed} from 'vue'
 
-const { data: todos, isLoading } = useTodoIndexQuery()
+const useTodoIndexQuery = useTodoIndexQuery()
+const todos = computed<TodoIndex[]>(() => useTodoIndexQuery.data?.data ?? [])
+const isLoading = computed<boolean>(() => useTodoIndexQuery.isLoading.value)
+  
 </script>
 
 <template>
@@ -915,43 +836,52 @@ const { data: todos, isLoading } = useTodoIndexQuery()
 
 Now that we have created the todo view and have a list of our existing todo's, we can start with creating new todo's.
 
-The creation of a todo will be done in a modal. This modal will be displayed when the user clicks on the `Create todo`
+The creation of a todo will be done in a dialog. This dialog will be displayed when the user clicks on the `Create todo`
 button.
-Modals are allowed to be smart components. The modal will contain a form that allows to enter the required information
+Dialogs are allowed to be smart components. The dialog will contain a form that allows to enter the required information
 for creating a new todo.
 
 ### Form model
-We are going to start by creating a file called `todoForm.model.ts` in the `src/modules/todos/models` folder.
+We are going to start by creating a file called `todoCreateForm.model.ts` in the `src/models/todos/create` folder.
 
 This file will contain a form schema that will be used to create a new todo
 ```typescript
-export const todoFormSchema = z.object({
+export const todoCreateFormSchema = z.object({
   title: z.string(),
   description: z.string(),
   deadline: z.string(),
 })
 
-export type TodoForm = z.infer<typeof formSchema>
+export type TodoCreateForm = z.infer<typeof formSchema>
 ```
+We again use a DTO model for this to separate the data that we send to the backend from the data that we use in the frontend. We can use the generated DTO for this.
+so in the same folder you can create a `todoCreateDto.model.ts` file with the following content:
+```typescript
+import type { CreateTodoCommand } from '@/client'
+
+export type TodoCreateDto = CreateTodoCommand
+```
+
 
 > aside positive
 > We use the **zod** library to create our form schemas. This library is used to validate and transform data.
 > You can read more about it here: [Zod.dev](https://zod.dev/)
 
+Also make a transformer for this model. Make a second class called `TodoCreateTransformer` in the `todo.transformer.ts` file.
 ### Service
 After creating the model that we want to add a new function to our existing service that will be used to create a new todo.
 
 ```typescript
-interface TodoService {
-  ...
-  create: (form: TodoForm) => Promise<void>
-}
 
-export const todoService: TodoService = {
+
+export class TodoService {
   ...
-  create: async (form: TodoForm): Promise<void> => {
-    await httpClient.post('/todos', form)
-  },
+  static async create(form: TodoCreateForm): Promise<void> {
+    await createTodoControllerCreateTodoV1<true>({
+      body: TodoService.toDto(form),
+      url: '/api/v1/todos',
+    })
+  }
 }
 ```
 
@@ -961,27 +891,26 @@ Next up we are going to create a mutation called `useTodoCreateMutation`.
 This mutation will be used to call the `create` function from our service and create a new todo in the backend.
 
 ```typescript
-export function useTodoCreateMutation() {
-  const queryClient = useQueryClient()
-  return useMutation({
-    mutationKey: 'createTodo',
-    mutationFn: async (form: TodoForm) => {
-      await todoService.create(form)
+export function useTodoCreateMutation(): UseMutationReturnType<TodoCreateForm, void, void> {
+  return useMutation<TodoCreateForm, void, void>({
+    queryFn: async ({ body }) => {
+      return await TodoService.create(body)
     },
-    onSuccess: async () => {
-      await queryClient.invalidateQueries('todos')
+    queryKeysToInvalidate: {
+      todoIndex: {},
     },
   })
 }
+
 ```
 
 > aside positive
 > If you're not sure how to use `useMutation`, you can take a look at the [Vue Query documentation](https://tanstack.com/query/v4/docs/vue/guides/mutations).
 
-### Modal (smart) component
-Once we have created the mutation, we can start with creating a modal component that will be used to create the todo's.
+### Dialog (smart) component
+Once we have created the mutation, we can start with creating a dialog component that will be used to create the todo's.
 
-- Create a `TodoModal.vue` (smart) component in the `src/modules/todos/components` folder.
+- Create a `TodoCreateDialog.vue` (smart) component in the `src/modules/todos/components` folder.
 - Add a form that allows the user to enter a `title`, `description` and `deadline`.
 - Add a submit button that will call the `useTodoCreateMutation` mutation.
 
@@ -991,9 +920,14 @@ Once we have created the mutation, we can start with creating a modal component 
 ```vue
 <script setup lang="ts">
 import { useForm } from 'formango' 
+const apiErrorToast = useApiErrorToast()
 const todoCreateMutation = useTodoCreateMutation()
 
-const { onSubmitForm, form } = useForm({
+const emit = defineEmits<{
+  close: []
+}>()t
+
+const form = useForm({
   schema: todoFormSchema,
   initialState: {
     title: '',
@@ -1002,67 +936,69 @@ const { onSubmitForm, form } = useForm({
   },
 })
 
-const title = form.register('title')
+const title = form.form.register('title')
 
 function onSubmit(): void {
-  form.submit()
+  form.form.submit()
 }
 
-onSubmitForm(async (formData: TodoCreateForm) => {
+function onClose(): void {
+  emit('close')
+}
+
+form.onSubmitForm(async (formData) => {
   try {
-    await todoCreateMutation.mutateAsync(formData) // notice the async keyword here, it's very important
+    await todoCreateMutation.mutateAsync({
+          data: formData
+        }) // notice the async keyword here, it's very important
   } catch (error) {
-    console.error(error)
+    apiErrorToast.show(error)
   }
 })
 </script>
 
 <template>
-<form @submit.prevent="onSubmit">
-    <AppInput v-bind="title" />
-    <button type="submit">Submit</button>
-</form>
+    <VcDialog
+        @close="onClose"
+    >
+        <AppDialogContent
+                class="w-dialog-sm"
+        >
+        <AppForm :form="form.form"">
+            <VcInput v-bind="title" />
+            <AppDialogActions>
+                <AppDialogActionCancel
+                        @click="onClose"
+                        :label="..." />
+                <FormSubmitButton
+                        :form="form.form"
+                        :label="..."
+                />
+            </AppDialogActions>
+          </AppForm>
+        </AppDialogContent>
+  </VcDialog>
 ```
 
-> aside negative
-> You will need to create a custom input component called `AppInput` for yourself.
-> This is necessary to make sure that Formango can properly bind the input to the form.
+> aside positive
+> You are going to use the components from the vue-core library. You can find the documentation [here](https://vue-core.wisemen.digital/).
+> Try and understand how the components work and. If anything is unclear, you can always ask your buddy for help.
 
-Example of a custom input component:
-```vue
-<script setup lang="ts">
-const props = defineProps<{
-  isDisabled?: boolean
-  placeholder?: string
-}>()
-
-const emit = defineEmits<{
-  blur: []
-}>()
-
-const model = defineModel<string | null>() // New macro to define a model https://vuejs.org/guide/components/v-model.html
-
-</script>
-
-<template>
-  <div>
-    <input
-        v-model="model"
-        :disabled="props.isDisabled"
-        :placeholder="props.placeholder"
-        @blur="() => emit('blur')"
-    />
-  </div>
-</template>
-```
 
 ### View
-To finish up, we are going to update our `TodoOverviewView` by adding a button that will open the `TodoModal` when clicked.
+To finish up, we are going to update our `TodoOverviewView` by adding a button that will open the `TodoDialog` when clicked.
+use the useDialog composable to make it all work!
 
 ```vue
 <script setup lang="ts">
 ...
-const isModalOpen = ref<boolean>(false) 
+const todoCreateDialog = useDialog({
+  component: () => import('@/modules/todos/components/TodoCreateDialog.vue'),
+}) 
+
+function onCreateButtonClick(): void {
+  todoCreateDialog.open()
+}
 ...
 </script>
 
@@ -1085,21 +1021,18 @@ To achieve this, we need to know if the modal is opened in `create` or `update` 
 check if a todo uuid is passed to the modal.
 
 ### Service
-Now it's time to add a new function to our existing service that will be used to update a todo.
+Now it's time to add a new function to our existing service that will be used to update a todo. try it yourself!
 
 ```typescript
-interface TodoService {
-  update: (uuid: TodoUuid, form: TodoForm) => Promise<void>
-  deleteByUuid: (uuid: TodoUuid) => Promise<void>
-}
-
-export const todoService: TodoService = {
-  update: async (uuid: TodoUuid, form: TodoForm): Promise<void> => {
-    await httpClient.post(`/todos/${uuid}`, form)
-  },
-  deleteByUuid: async (uuid: TodoUuid): Promise<void> => {
-    await httpClient.delete(`/todos/${uuid}`)
-  },
+export class TodoService {
+    ...
+  static async update(uuid: TodoUuid, form: TodoForm): Promise<void>{
+    ...
+  }
+  
+  static async deleteByUuid(uuid: TodoUuid): Promise<void> {
+    ...
+  }
 }
 ```
 
@@ -1108,23 +1041,7 @@ export const todoService: TodoService = {
 > More info can be found here: [https://zod.dev/?id=brand](https://zod.dev/?id=brand)
 
 ### Mutation
-Once we have added the `update` and `deleteByUuid` functions to our service, we can start with creating the mutations.
-
-```typescript
-export function useTodoUpdateMutation() {
-  const queryClient = useQueryClient()
-  
-  return useMutation({
-    mutationKey: 'updateTodo',
-    mutationFn: async (uuid: TodoUuid, form: TodoForm) => {
-      await todoService.update(uuid, form)
-    },
-    onSuccess: async () => {
-      await queryClient.invalidateQueries('todos')
-    },
-  })
-}
-```
+Once we have added the `update` and `deleteByUuid` functions to our service, we can start with creating the mutations. also try this yourself, it is very similar to the create mutation.
 
 ### Modal (smart) component
 Now it's time to extend the functionality of the `TodoModal` component to allow the user to update a todo.
@@ -1143,7 +1060,7 @@ const props = defineProps<{
 const updateMutation = useTodoUpdateMutation()
 const deleteMutation = useTodoDeleteMutation()
 
-const { onSubmitForm, form } = useForm({
+const form = useForm({
   schema: todoFormSchema,
   initialValues: {
     title: props.todo?.title || '',
@@ -1152,14 +1069,14 @@ const { onSubmitForm, form } = useForm({
   },
 })
 
-const title = form.register('title')
+const title = form.form.register('title')
 ...
 
 function onSubmit(): void {
-  form.submit()
+  form.form.submit()
 }
 
-onSubmitForm(async (formData: TodoForm) => {
+form.onSubmitForm(async (formData: TodoForm) => {
   try {
     if (props.todo) {
       await updateMutation.mutateAsync(props.todo.uuid, formData)
@@ -1179,17 +1096,21 @@ function handleDelete(uuid: TodoUuid): void {
 
 <template>
 <div>
+  ...
     <form @submit.prevent="onSubmit">
         <input v-model="title.value" />
         ...
         <button type="submit">Submit</button>
     </form>
     <button @click="handleDelete(props.uuid)">Delete</button>
+  ...
 </div>
 </template>
 ```
 
 💡Don't forget to make a pull request of your work so your buddy can review your code and keep track of your progress. Keeping your PR's small and frequent is a good practice.
+
+## PROJECT: Writing your first test
 
 ## Finishing up
 
